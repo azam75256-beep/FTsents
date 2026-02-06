@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | FT Scents - Luxury Fragrances</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+
+<body>
+    <!-- Fast Unique VIP Loader -->
+    <!-- <div id="loader" class="vip-loader">
+        <div class="reveal-panel top"></div>
+        <div class="reveal-panel bottom"></div>
+
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="char">F</span>
+                <span class="char">T</span>
+                <span class="char-space"> </span>
+                <span class="char">S</span>
+                <span class="char">c</span>
+                <span class="char">e</span>
+                <span class="char">n</span>
+                <span class="char">t</span>
+                <span class="char">s</span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="loader-percent">0%</div>
+            </div>
+            <div class="loader-status">Defining Artistry...</div>
+        </div>
+    </div> -->
+
+
+    <main>
+
+        <!-- Header / Nav -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <span class="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+                <div class="logo">FT Scents</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span><i class="fa-solid fa-user"></i></span>
+                <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="cart-icon" id="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-close">&times;</div>
+            <div class="search-content">
+                <input type="text" placeholder="Search for fragrances..." id="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <!-- Cart Sidebar Drawer -->
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Shopping Bag</h3>
+                <span class="cart-close">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-list">
+                <p class="empty-msg">Your cart is currently empty.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-box">
+                    <span>Total Items:</span>
+                    <span id="cart-total-count">0</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu">
+            <span class="close-menu">&times;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Shop Hero Section -->
+        <section class="shop-hero">
+            <div class="hero-content">
+                <span class="hero-label">Exclusive Collection</span>
+                <h1>Our Fragrances</h1>
+                <p>Discover 30+ handcrafted scents that define elegance</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Products</button>
+                        <button class="filter-btn" data-filter="men">Men's</button>
+                        <button class="filter-btn" data-filter="women">Women's</button>
+                    </div>
+                    <div class="sort-wrapper">
+                        <select id="sort-select" class="sort-select">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid Section -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Aurum Essence">
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Aurum Essence</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Saffron • Amber • Cedar</p>
+                            <div class="product-price">$240</div>
+                            <button class="add-to-cart-btn" data-product="Aurum Essence" data-price="240">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Midnight Noir">
+                        </div>
+                        <div class="product-info">
+                            <h3>Midnight Noir</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Agarwood • Leather • Patchouli</p>
+                            <div class="product-price">$220</div>
+                            <button class="add-to-cart-btn" data-product="Midnight Noir" data-price="220">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Rosé Velvet">
+                            <div class="product-badge new">New</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Rosé Velvet</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Rose • Pink Pepper • Musk</p>
+                            <div class="product-price">$185</div>
+                            <button class="add-to-cart-btn" data-product="Rosé Velvet" data-price="185">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Cobalt Sky">
+                        </div>
+                        <div class="product-info">
+                            <h3>Cobalt Sky</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Sea Salt • Bergamot • Amber</p>
+                            <div class="product-price">$195</div>
+                            <button class="add-to-cart-btn" data-product="Cobalt Sky" data-price="195">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Emerald Oud">
+                            <div class="product-badge">Premium</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Emerald Oud</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Agarwood • Green Notes • Resin</p>
+                            <div class="product-price">$280</div>
+                            <button class="add-to-cart-btn" data-product="Emerald Oud" data-price="280">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Velvet Sunset">
+                        </div>
+                        <div class="product-info">
+                            <h3>Velvet Sunset</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Vanilla • Jasmine • Sandalwood</p>
+                            <div class="product-price">$175</div>
+                            <button class="add-to-cart-btn" data-product="Velvet Sunset" data-price="175">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Ocean Breeze">
+                        </div>
+                        <div class="product-info">
+                            <h3>Ocean Breeze</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Aquatic • Mint • Driftwood</p>
+                            <div class="product-price">$165</div>
+                            <button class="add-to-cart-btn" data-product="Ocean Breeze" data-price="165">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Royal Amber">
+                        </div>
+                        <div class="product-info">
+                            <h3>Royal Amber</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Amber • Vanilla • Tonka Bean</p>
+                            <div class="product-price">$210</div>
+                            <button class="add-to-cart-btn" data-product="Royal Amber" data-price="210">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 9 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Jasmine Dream">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jasmine Dream</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Jasmine • White Musk • Lily</p>
+                            <div class="product-price">$190</div>
+                            <button class="add-to-cart-btn" data-product="Jasmine Dream" data-price="190">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 10 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Cedar Woods">
+                        </div>
+                        <div class="product-info">
+                            <h3>Cedar Woods</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Cedar • Vetiver • Moss</p>
+                            <div class="product-price">$200</div>
+                            <button class="add-to-cart-btn" data-product="Cedar Woods" data-price="200">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 11 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Vanilla Musk">
+                        </div>
+                        <div class="product-info">
+                            <h3>Vanilla Musk</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Vanilla • White Musk • Caramel</p>
+                            <div class="product-price">$170</div>
+                            <button class="add-to-cart-btn" data-product="Vanilla Musk" data-price="170">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 12 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Citrus Burst">
+                        </div>
+                        <div class="product-info">
+                            <h3>Citrus Burst</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Lemon • Orange • Grapefruit</p>
+                            <div class="product-price">$155</div>
+                            <button class="add-to-cart-btn" data-product="Citrus Burst" data-price="155">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 13 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Leather & Spice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Leather & Spice</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Leather • Cardamom • Tobacco</p>
+                            <div class="product-price">$230</div>
+                            <button class="add-to-cart-btn" data-product="Leather & Spice" data-price="230">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 14 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Peony Bloom">
+                        </div>
+                        <div class="product-info">
+                            <h3>Peony Bloom</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Peony • Freesia • Amber</p>
+                            <div class="product-price">$180</div>
+                            <button class="add-to-cart-btn" data-product="Peony Bloom" data-price="180">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 15 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Aqua Marine">
+                        </div>
+                        <div class="product-info">
+                            <h3>Aqua Marine</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Sea Breeze • Sage • Driftwood</p>
+                            <div class="product-price">$175</div>
+                            <button class="add-to-cart-btn" data-product="Aqua Marine" data-price="175">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 16 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Sandalwood Noir">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sandalwood Noir</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Sandalwood • Black Pepper • Musk</p>
+                            <div class="product-price">$215</div>
+                            <button class="add-to-cart-btn" data-product="Sandalwood Noir" data-price="215">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 17 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Rose Garden">
+                        </div>
+                        <div class="product-info">
+                            <h3>Rose Garden</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Bulgarian Rose • Geranium • Musk</p>
+                            <div class="product-price">$195</div>
+                            <button class="add-to-cart-btn" data-product="Rose Garden" data-price="195">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 18 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Fresh Mint">
+                        </div>
+                        <div class="product-info">
+                            <h3>Fresh Mint</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Mint • Eucalyptus • Green Tea</p>
+                            <div class="product-price">$150</div>
+                            <button class="add-to-cart-btn" data-product="Fresh Mint" data-price="150">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 19 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Tobacco Leather">
+                        </div>
+                        <div class="product-info">
+                            <h3>Tobacco Leather</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Tobacco • Leather • Vanilla</p>
+                            <div class="product-price">$225</div>
+                            <button class="add-to-cart-btn" data-product="Tobacco Leather" data-price="225">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 20 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Lily White">
+                        </div>
+                        <div class="product-info">
+                            <h3>Lily White</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">White Lily • Gardenia • Musk</p>
+                            <div class="product-price">$185</div>
+                            <button class="add-to-cart-btn" data-product="Lily White" data-price="185">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 21 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Bergamot Zest">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bergamot Zest</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Bergamot • Neroli • White Tea</p>
+                            <div class="product-price">$160</div>
+                            <button class="add-to-cart-btn" data-product="Bergamot Zest" data-price="160">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 22 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Dark Patchouli">
+                        </div>
+                        <div class="product-info">
+                            <h3>Dark Patchouli</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Patchouli • Amber • Oakmoss</p>
+                            <div class="product-price">$205</div>
+                            <button class="add-to-cart-btn" data-product="Dark Patchouli" data-price="205">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 23 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Lavender Fields">
+                        </div>
+                        <div class="product-info">
+                            <h3>Lavender Fields</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Lavender • Chamomile • Vanilla</p>
+                            <div class="product-price">$165</div>
+                            <button class="add-to-cart-btn" data-product="Lavender Fields" data-price="165">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 24 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Sea Salt">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sea Salt</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Sea Salt • Driftwood • Amber</p>
+                            <div class="product-price">$170</div>
+                            <button class="add-to-cart-btn" data-product="Sea Salt" data-price="170">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 25 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Smoky Agarwood">
+                        </div>
+                        <div class="product-info">
+                            <h3>Smoky Agarwood</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Agarwood • Smoke • Leather</p>
+                            <div class="product-price">$250</div>
+                            <button class="add-to-cart-btn" data-product="Smoky Agarwood" data-price="250">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 26 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_1.png" alt="Cherry Blossom">
+                        </div>
+                        <div class="product-info">
+                            <h3>Cherry Blossom</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Cherry Blossom • Peach • Musk</p>
+                            <div class="product-price">$175</div>
+                            <button class="add-to-cart-btn" data-product="Cherry Blossom" data-price="175">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 27 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_2.png" alt="Green Tea">
+                        </div>
+                        <div class="product-info">
+                            <h3>Green Tea</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Green Tea • Lemon • Ginger</p>
+                            <div class="product-price">$145</div>
+                            <button class="add-to-cart-btn" data-product="Green Tea" data-price="145">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 28 -->
+                    <div class="product-card" data-category="men">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_3.png" alt="Bourbon Vanilla">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bourbon Vanilla</h3>
+                            <p class="product-category">Men's</p>
+                            <p class="product-notes">Bourbon • Vanilla • Tonka Bean</p>
+                            <div class="product-price">$210</div>
+                            <button class="add-to-cart-btn" data-product="Bourbon Vanilla" data-price="210">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 29 -->
+                    <div class="product-card" data-category="women">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_4.png" alt="Magnolia">
+                        </div>
+                        <div class="product-info">
+                            <h3>Magnolia</h3>
+                            <p class="product-category">Women's</p>
+                            <p class="product-notes">Magnolia • Jasmine • Sandalwood</p>
+                            <div class="product-price">$190</div>
+                            <button class="add-to-cart-btn" data-product="Magnolia" data-price="190">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 30 -->
+                    <div class="product-card" data-category="unisex">
+                        <div class="product-image">
+                            <img src="assets/images/perfume_5.png" alt="Amber Woods">
+                        </div>
+                        <div class="product-info">
+                            <h3>Amber Woods</h3>
+                            <p class="product-category">Unisex</p>
+                            <p class="product-notes">Amber • Cedar • Patchouli</p>
+                            <div class="product-price">$200</div>
+                            <button class="add-to-cart-btn" data-product="Amber Woods" data-price="200">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="no-results" class="no-results" style="display: none;">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h3>No fragrances found</h3>
+                    <p>Try adjusting your search or filters to find what you're looking for.</p>
+                    <button class="btn-outline reset-filters">Reset All Filters</button>
+                </div>
+                <div class="pagination-container" id="pagination">
+                    <!-- Pagination buttons will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="newsletter-box">
+                <h3>Join the Private Circle</h3>
+                <p>Subscribe to receive early access to new releases and exclusive member-only offers.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col brand">
+                    <div class="logo">FT Scents</div>
+                    <p>Elevating your aura with the most refined fragrances in the world.</p>
+                    <div class="social-links">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html?filter=men">Men's Collection</a></li>
+                        <li><a href="shop.html?filter=women">Women's Collection</a></li>
+                        <li><a href="shop.html?filter=unisex">Unisex Collection</a></li>
+                        <li><a href="shop.html">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>123 Fragrance Lane, Scent City</p>
+                    <p>support@ftscents.com</p>
+                    <p>+1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FT Scents. All rights reserved.</p>
+                <p style="margin-top: 5px; font-size: 11px; opacity: 0.7;">Designed & Developed by 'Azam Siddiqui'</p>
+            </div>
+        </footer>
+
+        <!-- Custom Cart Popup Notification -->
+        <div id="cart-popup" class="cart-popup">
+            <div class="popup-content">
+                <i class="fa-solid fa-check-circle"></i>
+                <span id="popup-message">Item added to cart!</span>
+            </div>
+        </div>
+
+    </main>
+    <script src="js/shop.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

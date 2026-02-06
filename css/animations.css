@@ -1,0 +1,192 @@
+/* Main Loader Animations */
+.vip-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.reveal-panel {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #080808;
+    z-index: 1;
+}
+
+.reveal-panel.top {
+    top: 0;
+}
+
+.reveal-panel.bottom {
+    bottom: 0;
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.loader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-bottom: 30px;
+}
+
+.loader-bar-container {
+    width: 300px;
+    margin: 0 auto 20px;
+}
+
+.loader-bar {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-bar .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+}
+
+.loader-percent {
+    font-size: 14px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.loader-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.5;
+}
+
+/* Keyframes */
+@keyframes showContent {
+    from {
+        transform: translateY(50px);
+        filter: blur(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.carousel .list .item:nth-child(2) .intro .title,
+.carousel .list .item:nth-child(2) .intro .topic,
+.carousel .list .item:nth-child(2) .intro .des,
+.carousel .list .item:nth-child(2) .intro .seeMore {
+    opacity: 0;
+    animation: showContent 0.8s 0.3s ease-in-out forwards;
+}
+
+.carousel .list .item:nth-child(2) .intro .topic {
+    animation-delay: 0.5s;
+}
+
+.carousel .list .item:nth-child(2) .intro .des {
+    animation-delay: 0.7s;
+}
+
+.carousel .list .item:nth-child(2) .intro .seeMore {
+    animation-delay: 0.9s;
+}
+
+/* Sliding Animations */
+@keyframes positionItem2 {
+    from {
+        transform: var(--item2-transform);
+        filter: var(--item2-filter);
+        z-index: var(--item2-zIndex);
+        opacity: var(--item2-opacity);
+    }
+}
+
+@keyframes positionItem1 {
+    from {
+        transform: var(--item1-transform);
+        filter: var(--item1-filter);
+        z-index: var(--item1-zIndex);
+        opacity: var(--item1-opacity);
+    }
+}
+
+/* =========================================
+   PREMIUM GSAP PAGE TRANSITIONS (Barba.js)
+   ========================================= */
+
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000000;
+    pointer-events: none;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-transition-overlay.active {
+    visibility: visible;
+    pointer-events: all;
+}
+
+.transition-panels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.transition-panels .panel {
+    flex: 1;
+    width: 100%;
+    background: #0a0a0a;
+    transform: scaleX(0);
+    transform-origin: right;
+    /* border-bottom: 0.5px solid rgba(255, 255, 255, 0.05); */
+    /* Subtle separation */
+}
+
+.transition-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    letter-spacing: 15px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}

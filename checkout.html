@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | FT Scents</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body class="checkout-page">
+    <!-- Fast Unique VIP Loader -->
+    <!-- <div id="loader" class="vip-loader">
+        <div class="reveal-panel top"></div>
+        <div class="reveal-panel bottom"></div>
+
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="char">F</span>
+                <span class="char">T</span>
+                <span class="char-space"> </span>
+                <span class="char">S</span>
+                <span class="char">c</span>
+                <span class="char">e</span>
+                <span class="char">n</span>
+                <span class="char">t</span>
+                <span class="char">s</span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="loader-percent">0%</div>
+            </div>
+            <div class="loader-status">Defining Artistry...</div>
+        </div>
+    </div> -->
+    <nav class="navbar scrolled">
+        <div class="nav-left">
+            <span class="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+            <div class="logo">FT Scents</div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <span><i class="fa-solid fa-user"></i></span>
+            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <div class="cart-icon" id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <span class="close-menu">&times;</span>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <main class="checkout-container">
+        <div class="checkout-grid">
+            <!-- Left: Checkout Form -->
+            <div class="checkout-form-section">
+                <h2 class="section-title">Checkout</h2>
+
+                <form id="checkout-form">
+                    <!-- Contact Information -->
+                    <div class="form-group">
+                        <h3>Contact Information</h3>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="form-group">
+                        <h3>Shipping Address</h3>
+                        <div class="input-row">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <input type="text" placeholder="Address" required>
+                        <input type="text" placeholder="Apartment, suite, etc. (optional)">
+                        <div class="input-row">
+                            <input type="text" placeholder="City" required>
+                            <input type="text" placeholder="Country" required>
+                            <input type="text" placeholder="Postal Code" required>
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="form-group">
+                        <h3>Payment</h3>
+                        <div class="payment-methods">
+                            <div class="method active">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span>Credit Card</span>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Card Number" required>
+                        <div class="input-row">
+                            <input type="text" placeholder="Expiration Date (MM / YY)" required>
+                            <input type="text" placeholder="Security Code" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="complete-order-btn">Complete Order</button>
+                </form>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="order-summary-section">
+                <div class="order-summary-card">
+                    <h3>Order Summary</h3>
+                    <div id="summary-items" class="summary-items">
+                        <!-- Items will be injected by JavaScript -->
+                    </div>
+
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total</span>
+                            <span id="summary-total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand">
+                <div class="logo">FT Scents</div>
+                <p>Elevating your aura with the most refined fragrances in the world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FT Scents. All rights reserved.</p>
+            <p style="margin-top: 5px; font-size: 11px; opacity: 0.7;">Designed & Developed by 'Azam Siddiqui'</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>Order Placed!</h2>
+            <p>Thank you for your purchase. Your order is being processed.</p>
+            <button onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+
+</html>

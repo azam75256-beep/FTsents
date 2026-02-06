@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | FT Scents</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+    <!-- Fast Unique VIP Loader -->
+    <!-- <div id="loader" class="vip-loader">
+        <div class="reveal-panel top"></div>
+        <div class="reveal-panel bottom"></div>
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="char">F</span>
+                <span class="char">T</span>
+                <span class="char-space"> </span>
+                <span class="char">S</span>
+                <span class="char">c</span>
+                <span class="char">e</span>
+                <span class="char">n</span>
+                <span class="char">t</span>
+                <span class="char">s</span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="loader-percent">0%</div>
+            </div>
+            <div class="loader-status">Connecting with You...</div>
+        </div>
+    </div> -->
+
+    <main>
+        <!-- Header / Nav -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <span class="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+                <div class="logo">FT Scents</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span><i class="fa-solid fa-user"></i></span>
+                <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="cart-icon" id="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-close">&times;</div>
+            <div class="search-content">
+                <input type="text" placeholder="Search for fragrances..." id="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <!-- Cart Sidebar Drawer -->
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Shopping Bag</h3>
+                <span class="cart-close">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-list">
+                <p class="empty-msg">Your cart is currently empty.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-box">
+                    <span>Total Items:</span>
+                    <span id="cart-total-count">0</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu">
+            <span class="close-menu">&times;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container overflow-hidden">
+                <div class="contact-header">
+                    <span class="reveal-text subtitle">Get in Touch</span>
+                    <h1 class="reveal-text main-title">Let's Start a <br>Conversation</h1>
+                    <p class="reveal-text description">Whether you have a question about our collections or simply want
+                        to share your thoughts, we're here to listen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="contact-content">
+            <div class="container overflow-hidden">
+                <div class="contact-grid">
+                    <!-- Contact Form Column -->
+                    <div class="contact-form-col reveal-col">
+                        <div class="contact-card">
+                            <h3>Send a Message</h3>
+                            <form id="contact-form" class="custom-form">
+                                <div class="form-group">
+                                    <input type="text" id="name" required placeholder=" ">
+                                    <label for="name">Your Name</label>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" required placeholder=" ">
+                                    <label for="email">E-mail Address</label>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="subject" placeholder=" ">
+                                    <label for="subject">Subject (Optional)</label>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="message" required placeholder=" " rows="4"></textarea>
+                                    <label for="message">How can we help?</label>
+                                    <div class="line"></div>
+                                </div>
+                                <button type="submit" class="submit-btn LuxeBtn">
+                                    <span>Send Message</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info Column -->
+                    <div class="contact-info-col reveal-col">
+                        <div class="info-group">
+                            <span class="info-label">Follow our trail</span>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="text-box">
+                                    <h4>Our Atelier</h4>
+                                    <p>123 Fragrance Lane, Scent City, SC 45678</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="text-box">
+                                    <h4>Email Us</h4>
+                                    <p>support@ftsents.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                                <div class="text-box">
+                                    <h4>Call Us</h4>
+                                    <p>+1 (234) 567-890</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-wrapper">
+                            <span class="info-label">Find us on Social</span>
+                            <div class="social-icons">
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="brand-element">
+                            <img src="assets/images/story_hero.png" alt="FT Scents Signature" class="parallax-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section (Placeholder for aesthetic) -->
+        <section class="map-section">
+            <div class="map-overlay">
+                <div class="map-content">
+                    <h3>Visit Our Fragrance Bar</h3>
+                    <p>Experience the art of perfume making in person. We are open for private consultations daily from
+                        10 AM to 6 PM.</p>
+                    <button class="btn-outline">Book an Appointment</button>
+                </div>
+            </div>
+            <div class="map-placeholder"></div>
+        </section>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col brand">
+                    <div class="logo">FT Scents</div>
+                    <p>Elevating your aura with the most refined fragrances in the world.</p>
+                    <div class="social-links">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">Men's Collection</a></li>
+                        <li><a href="shop.html">Women's Collection</a></li>
+                        <li><a href="shop.html">Gift Sets</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>123 Fragrance Lane, Scent City</p>
+                    <p>support@ftsents.com</p>
+                    <p>+1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FT Scents. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Success Message Popup -->
+        <div id="form-popup" class="cart-popup">
+            <div class="popup-content">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Message sent successfully!</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/shop.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+
+</html>

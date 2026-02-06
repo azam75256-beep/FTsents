@@ -1,0 +1,364 @@
+/* Global Clean Up */
+* {
+    max-width: 100%;
+}
+
+html,
+body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+        width: 94% !important;
+        left: 50% !important;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+
+    .menu-toggle {
+        display: block !important;
+    }
+
+    .nav-links {
+        display: none !important;
+    }
+
+    .carousel .list {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        transform: translate(0, -50%) !important;
+    }
+
+    .carousel .list .item {
+        width: 100% !important;
+    }
+
+    .carousel .list .item img {
+        width: 35% !important;
+        right: 8% !important;
+        top: 35% !important;
+    }
+
+    .carousel .list .item .intro {
+        width: 100% !important;
+        max-width: 500px;
+        left: 0 !important;
+        padding: 0 40px;
+        top: 65% !important;
+    }
+
+    .arrows {
+        width: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 0 40px !important;
+        right: auto !important;
+        bottom: 12% !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .hero-text-panel h2 {
+        font-size: 40px !important;
+    }
+
+    .pin-panel h3 {
+        font-size: 28px !important;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    .navbar {
+        width: 95% !important;
+        left: 50% !important;
+        padding: 5px 15px !important;
+        height: 55px !important;
+        top: 15px !important;
+        border-radius: 50px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .nav-left {
+        gap: 8px !important;
+        flex: 0 1 auto !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .logo {
+        position: static !important;
+        transform: none !important;
+        font-size: 14px !important;
+        letter-spacing: 2px !important;
+        width: auto !important;
+        white-space: nowrap !important;
+        flex: 1 !important;
+        text-align: center !important;
+    }
+
+    .nav-right {
+        gap: 12px !important;
+        flex: 0 1 auto !important;
+    }
+
+    .nav-right i {
+        font-size: 14px !important;
+    }
+
+    .cart-count {
+        font-size: 10px !important;
+    }
+
+
+
+    .hero {
+        height: 100vh !important;
+        min-height: 600px !important;
+    }
+
+    /* Slider Vertical Stack Logic */
+    .carousel .list {
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .carousel .list .item {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .carousel .list .item img {
+        width: 32% !important;
+        left: 50% !important;
+        top: 15% !important;
+        transform: translateX(-50%) !important;
+        right: auto !important;
+    }
+
+    .carousel .list .item .intro {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 25px !important;
+        top: 48% !important;
+        left: 0 !important;
+        text-align: center !important;
+        transform: none !important;
+        opacity: 1 !important;
+        z-index: 150;
+    }
+
+    .carousel .list .item .intro .title {
+        font-size: 10px !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .carousel .list .item .intro .topic {
+        font-size: 24px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .carousel .list .item .intro .des {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 15px !important;
+        padding: 0 10px !important;
+    }
+
+    .carousel .list .item .intro .seeMore {
+        padding: 10px 20px !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Detail View Mobile Stack */
+    .carousel.showDetail .list .item .detail {
+        width: 100% !important;
+        top: 52% !important;
+        left: 0 !important;
+        padding: 0 25px !important;
+        text-align: center !important;
+        transform: none !important;
+    }
+
+    .carousel.showDetail .list .item .detail .title {
+        font-size: 24px !important;
+    }
+
+    .carousel.showDetail .list .item .detail .specifications {
+        display: none !important;
+    }
+
+    .carousel.showDetail .list .item img {
+        top: 10% !important;
+        width: 40% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Arrows Centered at Bottom */
+    .arrows {
+        bottom: 80px !important;
+        width: 100% !important;
+        left: 0 !important;
+        transform: none !important;
+        justify-content: center !important;
+        gap: 30px !important;
+        z-index: 1000;
+        right: auto !important;
+    }
+
+    .arrows button {
+        width: 35px !important;
+        height: 35px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid var(--accent) !important;
+        font-size: 12px !important;
+    }
+
+    .arrows #back {
+        display: none !important;
+    }
+
+    /* Grids Cleanup */
+    .duo-grid,
+    .triple-grid,
+    .testimonial-grid,
+    .about-flex {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        padding: 0 20px !important;
+    }
+
+    .duo-cards {
+        flex-direction: column !important;
+    }
+
+    .features-bar {
+        flex-direction: column !important;
+        gap: 30px !important;
+        padding: 40px 20px !important;
+    }
+
+    .about-stats {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* Newsletter Section Mobile Fix */
+    .newsletter {
+        padding: 60px 20px !important;
+    }
+
+    .newsletter-box {
+        padding: 30px 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .newsletter-box h3 {
+        font-size: 24px !important;
+    }
+
+    .subscribe-form {
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 15px !important;
+    }
+
+    .subscribe-form input {
+        width: 100% !important;
+        padding: 15px 20px !important;
+    }
+
+    .subscribe-form button {
+        width: 100% !important;
+        padding: 15px 30px !important;
+        font-size: 14px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .pin-panel {
+        padding: 40px 20px !important;
+        text-align: center !important;
+    }
+
+    .pin-panel img {
+        width: 100% !important;
+        height: 250px !important;
+    }
+
+    .hero-text-panel h2 {
+        font-size: 32px !important;
+        padding: 0 20px;
+    }
+
+    .hero-text-panel p {
+        font-size: 14px !important;
+        padding: 0 40px;
+    }
+
+    /* Footer Stacked on Mobile */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        text-align: center !important;
+    }
+
+    /* Signature Essence Title Fix */
+    .section-decor-title {
+        font-size: 16px !important;
+        letter-spacing: 8px !important;
+        margin-bottom: 50px !important;
+    }
+}
+
+/* Small Mobile Improvements */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 12px !important;
+    }
+
+    .carousel .list .item .intro .topic {
+        font-size: 22px !important;
+    }
+
+    .carousel .list .item img {
+        width: 55% !important;
+        top: 12% !important;
+    }
+}

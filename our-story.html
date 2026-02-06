@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | FT Scents</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/story.css">
+</head>
+
+<body>
+    <!-- Fast Unique VIP Loader (Re-used) -->
+    <!-- <div id="loader" class="vip-loader">
+        <div class="reveal-panel top"></div>
+        <div class="reveal-panel bottom"></div>
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="char">F</span>
+                <span class="char">T</span>
+                <span class="char-space"> </span>
+                <span class="char">S</span>
+                <span class="char">c</span>
+                <span class="char">e</span>
+                <span class="char">n</span>
+                <span class="char">t</span>
+                <span class="char">s</span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="loader-percent">0%</div>
+            </div>
+            <div class="loader-status">Unveiling the Legacy...</div>
+        </div>
+    </div> -->
+
+    <main>
+        <!-- Header / Nav -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <span class="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+                <div class="logo">FT Scents</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="our-story.html" class="active">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span><i class="fa-solid fa-user"></i></span>
+                <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="cart-icon" id="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-close">&times;</div>
+            <div class="search-content">
+                <input type="text" placeholder="Search for fragrances..." id="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <!-- Cart Sidebar Drawer -->
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Shopping Bag</h3>
+                <span class="cart-close">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-list">
+                <p class="empty-msg">Your cart is currently empty.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-box">
+                    <span>Total Items:</span>
+                    <span id="cart-total-count">0</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu">
+            <span class="close-menu">&times;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Story Hero Section -->
+        <section class="story-hero">
+            <div class="hero-bg parallax-bg"></div>
+            <div class="hero-content">
+                <span class="reveal-text subtitle">Established 2020</span>
+                <h1 class="reveal-text main-title">The Art of <br>Scent Making</h1>
+                <p class="reveal-text description">A journey through time, elegance, and olfactory excellence.</p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Our Origins Section -->
+        <section class="story-section origins">
+            <div class="container overflow-hidden">
+                <div class="story-grid">
+                    <div class="story-image-box reveal-img">
+                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=1000"
+                            alt="Fragrance Labs">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="story-text-box">
+                        <span class="section-label">01. Our Origins</span>
+                        <h2 class="section-title">A Vision Born in Silence</h2>
+                        <p class="section-desc">FT Scents began not with a business plan, but with a memory. A memory of
+                            a single scent that captured the essence of a thousand moments. Our founder sought to bottle
+                            the intangible—the feeling of a sunset, the whisper of a breeze, the confidence of a legacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Craft Section -->
+        <section class="story-section craft alt-bg">
+            <div class="container overflow-hidden">
+                <div class="story-grid reverse">
+                    <div class="story-image-box reveal-img">
+                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=1000"
+                            alt="Perfume Bottles">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="story-text-box">
+                        <span class="section-label">02. The Craft</span>
+                        <h2 class="section-title">Artistry in Every Drop</h2>
+                        <p class="section-desc">We believe perfume is liquid poetry. Each of our fragrances is
+                            meticulously crafted using rare, sustainably sourced ingredients from across the globe. From
+                            the jasmine fields of Grasse to the sandalwood forests of Mysore, we seek only the finest
+                            essence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="story-section philosophy">
+            <div class="container overflow-hidden">
+                <div class="story-grid">
+                    <div class="story-image-box reveal-img">
+                        <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?auto=format&fit=crop&q=80&w=1000"
+                            alt="Abstract Scent">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="story-text-box">
+                        <span class="section-label">03. Philosophy</span>
+                        <h2 class="section-title">Beyond the Bottle</h2>
+                        <p class="section-desc">Our philosophy is simple: Luxury shouldn't be loud; it should be felt.
+                            We create scents that don't just fill a room, but leave a lasting impression on the soul.
+                            It's not just about how you smell—it's about how you feel when you wear FT Scents.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <div class="quote-content">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <h2 class="quote-text">Scent is the most intense form of memory.</h2>
+                    <span class="quote-author">— The FT Legacy</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics/Legacy Section -->
+        <section class="legacy-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-target="150">0</h3>
+                        <p class="stat-label">Rare Ingredients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-target="24">0</h3>
+                        <p class="stat-label">Hour Longevity</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-target="50">0</h3>
+                        <p class="stat-label">Master Blends</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col brand">
+                    <div class="logo">FT Scents</div>
+                    <p>Elevating your aura with the most refined fragrances in the world.</p>
+                    <div class="social-links">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Men's Collection</a></li>
+                        <li><a href="#">Women's Collection</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>123 Fragrance Lane, Scent City</p>
+                    <p>support@ftsents.com</p>
+                    <p>+1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FT Scents. All rights reserved.</p>
+                <p style="margin-top: 5px; font-size: 11px; opacity: 0.7;">Designed & Developed by 'Azam Siddiqui'</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/shop.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/story.js"></script>
+</body>
+
+</html>
